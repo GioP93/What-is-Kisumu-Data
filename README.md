@@ -109,8 +109,7 @@ Script 2 writes into `outputs/spearman/`:
 
 ## Licence
 
-Data and code are released under [CHOOSE: e.g. CC-BY-4.0 for data, MIT for code].
-Please complete this section before publishing.
+Data and code are released under CC-BY-4.0 for data, and MIT for code.
 
 ## Citation
 
