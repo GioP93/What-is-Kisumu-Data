@@ -39,15 +39,6 @@ data files corresponds to the display label `K*` used in the paper's figures
 and tables. The mapping between letter codes and the figures/tables in the
 paper is consistent throughout.
 
-## The Stan model file
-
-The analysis depends on a Stan model, `example_model.stan` — the
-five-parameter logistic binomial dose-response model of the Bayesian
-framework (Kont et al. 2023; Corbel et al. 2023). **This file must be placed
-in the `stan/` folder before running** (`stan/example_model.stan`). A
-placeholder note marks the location. The scripts will stop with a clear
-message if the model is missing.
-
 ## Requirements
 
 - R (≥ 4.2 recommended)
