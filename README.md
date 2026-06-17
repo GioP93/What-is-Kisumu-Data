@@ -21,7 +21,7 @@ cross-insecticide Spearman rank correlation reported in the paper.
 │   ├── ddt.csv
 │   └── pirimiphos_methyl.csv
 ├── stan/
-│   └── example_model.stan        <-- YOU MUST ADD THIS FILE (see below)
+│   └── example_model.stan        
 ├── scripts/
 │   ├── 1_variability_analysis.R  Fits all four insecticides; LC50s, plots, metrics
 │   └── 2_spearman_correlation.R  Cross-insecticide Spearman (run after script 1)
