@@ -8,14 +8,14 @@
 ##
 ## Two outputs:
 ##   1. Point-estimate heatmap (median LC50 per site), matching the
-##      supplied spearman_heatmap.png style.
+##      spearman_heatmap.png style.
 ##   2. Uncertainty-propagated version: Spearman R computed across matched
 ##      posterior draws, giving a median R and 95% credible interval per
 ##      pair (so you can see whether a correlation is well-determined).
 ##
 ## Only sites NOT excluded by the LC50 rule are used (the excluded curves
 ## have no reliable LC50). Each pair uses only sites with data for both
-## insecticides (pairwise-complete), exactly like the supplied script.
+## insecticides (pairwise-complete).
 ## =====================================================================
 
 pacman::p_load(here, tidyverse, reshape2, ggplot2)
@@ -36,7 +36,7 @@ insecticide_folders <- c(
   "pirimiphos_methyl"  = "Pirimiphos methyl"
 )
 
-# Fixed display order (matches the supplied heatmap)
+# Fixed display order
 ins_order <- c("DDT", "Alpha-cypermethrin", "Permethrin", "Pirimiphos methyl")
 
 spearman_dir <- file.path(outputs_root, "spearman")
@@ -102,7 +102,7 @@ med_tab <- all_post %>%
 mat <- med_tab %>% select(any_of(ins_order)) %>% as.data.frame()
 rownames(mat) <- med_tab$Site
 
-# Spearman on the median LC50s (pairwise-complete, as in the supplied script)
+# Spearman on the median LC50s
 cor_mat <- cor(mat, method = "spearman", use = "pairwise.complete.obs")
 cat("\nSpearman correlation (median LC50):\n"); print(round(cor_mat, 2))
 
@@ -183,7 +183,7 @@ if (!is.null(spear_unc)) {
 }
 
 # ---------------------------------------------------------------------
-# 4/ HEATMAP (lower triangle, matching the supplied style) ----
+# 4/ HEATMAP 
 # ---------------------------------------------------------------------
 cm <- cor_mat
 cm[upper.tri(cm)] <- NA                 # keep diagonal + lower triangle
